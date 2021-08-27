@@ -8,11 +8,13 @@
         }
     },
     "secretKeys":{
-        "cryptojs":"jsA5t2@tfhD"
+        "cryptojs":"jsA5t2@tfhD",
+        "jwt": "ABC@2020*"
     },
     "roles":{
         "student": 1,
         "teacher": 2
     },
-    "server-port": 3000
+    "server-port": 3000,
+    "sessionTime": 3600
 }
