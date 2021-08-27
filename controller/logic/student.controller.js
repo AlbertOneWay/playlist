@@ -6,17 +6,18 @@ const config = require("config");
 
 /** Helper */
 const helper = require("../helpers/general.helper");
+const notHelper = require("../helpers/notification.helper");
 
 exports.createStudent = (req, res, next) => {
     let std = {
         code: req.body.code,
         name: req.body.name,
-        lastName: req.body.lastName,
+        lastname: req.body.lastname,
         email: req.body.email,
         phone: req.body.phone,
         career: req.body.career
     };
-    studentDto.save(std, (err, data) => {
+    studentDto.create(std, (err, data) => {
         if (err) {
             return res.status(400).json(
                 {
@@ -29,19 +30,22 @@ exports.createStudent = (req, res, next) => {
 
         let user = {
             name: std.name,
-            lastName: std.lastName,
+            lastname: std.lastname,
             username: std.code,
             password: helper.EncryptPassword(req.body.password),
             role: r
         };
-        userDto.save(user, (err, u) => {
+        userDto.create(user, (err, u) => {
             if (err) {
-                return res.status(400).json(
-                    {
-                        error: err
-                    }
-                );
+                studentDto.delete({_id: data._id} , (err, data) =>{
+                    return res.status(400).json(
+                        {
+                            error: err
+                        }
+                    );
+                })
             }
+            notHelper.sendSMS(std.phone);
             res.status(201).json(
                 {
                     info: data

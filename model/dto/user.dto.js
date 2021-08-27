@@ -2,8 +2,10 @@
 
 const mongoose = require("mongoose");
 
+
 /** using schema */
 const schema = require("../schemas/user.schema")
+
 
 schema.statics = {
     create: function (data, cb){

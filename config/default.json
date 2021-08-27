@@ -2,12 +2,12 @@
     "db-connection":{
         "mongodb":{
             "host": "cluster0.8i9ri.mongodb.net",
-            "user":"usuario_prog3",
-            "password":"mFiF3pzrsr4rht5v",
+            "user":"api",
+            "password":"Rjoetsorj8Q3X48G",
             "dbname":"AcademicDB"
         }
     },
-    "secretkeys":{
+    "secretKeys":{
         "cryptojs":"jsA5t2@tfhD"
     },
     "roles":{

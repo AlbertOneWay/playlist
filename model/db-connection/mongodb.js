@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 const config = require("config");
 
-const mongodbInfo = config.get("db-connections.mongodb")
+const mongodbInfo = config.get("db-connection.mongodb")
 
 
 const connStr= `mongodb+srv://${mongodbInfo.user}:${mongodbInfo.password}@${mongodbInfo.host}/${mongodbInfo.dbname}?retryWrites=true&w=majority`
