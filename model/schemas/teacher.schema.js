@@ -28,7 +28,7 @@ const teacherSchema = new mongoose.Schema({
         required: true
     },
     office:{
-        type: "Boolean",
+        type: "String",
         required: true
     },
     department:{
